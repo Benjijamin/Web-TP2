@@ -26,5 +26,10 @@ namespace Web_TP2.Controllers
 
             return View();
         }
+
+        public ActionResult Accueil()
+        {
+            return View();
+        }
     }
 }
