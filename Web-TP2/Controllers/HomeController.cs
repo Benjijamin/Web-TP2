@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿
 using System.Web.Mvc;
+using Web_TP2.Models;
 
 namespace Web_TP2.Controllers
 {
@@ -10,6 +8,9 @@ namespace Web_TP2.Controllers
     {
         public ActionResult Index()
         {
+            Login l = new Login("ben","123");
+            Serializer<Login> s = new Serializer<Login>();
+            s.Serialize(l, HttpContext.Current.Server.MapPath(@"~/xyz.txt"));
             return View();
         }
 
