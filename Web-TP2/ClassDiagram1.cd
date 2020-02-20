@@ -28,5 +28,19 @@
       <FileName>App_Start\RouteConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Web_TP2.Models.Login">
+    <Position X="4.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAEAAAACAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Web_TP2.Models.Serializer&lt;T&gt;">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Serializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
