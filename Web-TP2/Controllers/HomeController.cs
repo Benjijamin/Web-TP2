@@ -30,6 +30,12 @@ namespace Web_TP2.Controllers
         public ActionResult Accueil()
         {
             return View();
+
+        }
+
+        public ActionResult Nouveaute()
+        {
+            return View();
         }
     }
 }
