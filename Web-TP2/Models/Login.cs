@@ -11,6 +11,11 @@ namespace Web_TP2.Models
         private string log;
         private string pass;
 
+        public Login() {
+            Log = null;
+            Pass = null;
+        }
+
         public Login(string login, string pass)
         {
             Log = login;

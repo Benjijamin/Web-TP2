@@ -2,33 +2,48 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace Web_TP2.Models
 {
-    public class Serializer<T>
+    public class Serializer
     {
 
-        public void Serialize(T input, string path)
+        public void Serialize(Login input, string path)
         {
-            XmlSerializer writer = new XmlSerializer(typeof(T));
-            bool existe = File.Exists(path);
-            if (!existe) {
-                Stream s = File.Create(path);
-                writer.Serialize(s, input);
-            }else
+            XDocument doc;
+            if (!File.Exists(path))
             {
-                StreamWriter s = File.AppendText(path);
-                writer.Serialize(s, input);
+                doc = new XDocument(new XElement("Logins"));
             }
-            s.Close();
+            else
+            {
+                doc = XDocument.Load(path);
+            }
+            XElement logins = doc.Element("Logins");
+            XElement user = new XElement("User");
+            
+            user.Add(
+                new XElement("username", input.Log),
+                new XElement("password", input.Pass)
+                );
+            logins.Add(user);
+            doc.Save(path);
         }
 
-        public List<T> Read(string path)
+        public List<Object> Read(string path)
         {
+            List<Object> listUsers = new List<Object>(); 
 
-            return new List<T>();
+            XDocument doc = XDocument.Load(path);
+            foreach (XElement el in XElement.Load(path).Elements("User")) {
+                listUsers.Add(new Login(el.Element("username").Value,el.Element("password").Value));
+            }
+
+            return listUsers;
         }
 
     }
