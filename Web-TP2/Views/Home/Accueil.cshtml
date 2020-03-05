@@ -17,9 +17,9 @@
                 Veuillez vous identifier
             </p>
 
-          
 
-            
+
+
 
             <div class="login-form" style="margin-top:50px;">
                 <form>
@@ -36,12 +36,15 @@
 
 
                 </form>
-
-
-
-
             </div>
 
+            @{
+                Html.BeginForm("Login", "Home", FormMethod.Post);
+            }
+
+            <p>username: @Html.TextBox("username")</p>
+            <p>password: @Html.TextBox("password")</p>
+            <input type="submit" value="submit"/>
 
         </div>
 

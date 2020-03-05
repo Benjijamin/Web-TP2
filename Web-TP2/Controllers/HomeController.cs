@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Web_TP2.Models;
 
@@ -8,9 +9,14 @@ namespace Web_TP2.Controllers
     {
         public ActionResult Index()
         {
+            /*
             Login l = new Login("ben","123");
-            Serializer<Login> s = new Serializer<Login>();
-            s.Serialize(l, HttpContext.Current.Server.MapPath(@"~/xyz.txt"));
+            Serializer s = new Serializer();
+            s.Serialize(l, Server.MapPath("~") + "xyz.txt");
+            */
+            Serializer s = new Serializer();
+            ViewBag.liste = s.Read(Server.MapPath("~")+ "xyz.txt");
+
             return View();
         }
 
@@ -37,6 +43,28 @@ namespace Web_TP2.Controllers
         public ActionResult Nouveaute()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login()
+        {
+            string user = Request.Form["username"];
+            string pass = Request.Form["password"];
+
+            Serializer s = new Serializer();
+            List<object> listUsers = s.Read(Server.MapPath("~") + "users.txt");
+
+            bool loginCorrect = false;
+            foreach (Login u in listUsers) {
+                if (user == u.Log && pass == u.Pass) loginCorrect = true;
+            }
+            if (loginCorrect) {
+
+                return View("index");
+            }
+            else {
+                return View("Accueil");
+            }
         }
     }
 }
