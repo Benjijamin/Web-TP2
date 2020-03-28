@@ -5,7 +5,7 @@
     <password>123</password>
   </User>
   <User>
-    <username>ben</username>
-    <password>123</password>
+    <username>username</username>
+    <password>password</password>
   </User>
 </Logins>

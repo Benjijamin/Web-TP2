@@ -126,9 +126,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FilmSerializer.cs" />
     <Compile Include="Models\Film.cs" />
-    <Compile Include="Models\Login.cs" />
-    <Compile Include="Models\Serializer.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

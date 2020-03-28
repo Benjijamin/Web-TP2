@@ -18,6 +18,12 @@ namespace Web_TP2.Models
             this.Nom = n;
         }
 
+
+        public Film(int id, String n) {
+            Id = id;
+            Nom = nom;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Nom { get => nom; set => nom = value; }
 

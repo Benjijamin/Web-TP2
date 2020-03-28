@@ -9,10 +9,10 @@ using System.Xml.Serialization;
 
 namespace Web_TP2.Models
 {
-    public class Serializer
+    public class UserSerializer
     {
 
-        public void Serialize(Login input, string path)
+        public void Serialize(User input, string path)
         {
             XDocument doc;
             if (!File.Exists(path))
@@ -34,17 +34,16 @@ namespace Web_TP2.Models
             doc.Save(path);
         }
 
-        public List<Object> Read(string path)
+        public List<User> Read(string path)
         {
-            List<Object> listUsers = new List<Object>(); 
+            List<User> listUsers = new List<User>(); 
 
             XDocument doc = XDocument.Load(path);
             foreach (XElement el in XElement.Load(path).Elements("User")) {
-                listUsers.Add(new Login(el.Element("username").Value,el.Element("password").Value));
+                listUsers.Add(new User(el.Element("username").Value,el.Element("password").Value));
             }
 
             return listUsers;
         }
-
     }
 }

@@ -13,7 +13,8 @@ namespace Web_TP2.Controllers
             {
                 return View();
             }
-            else {
+            else
+            {
                 return Redirect("Accueil");
             }
         }
@@ -48,8 +49,8 @@ namespace Web_TP2.Controllers
 
         public ActionResult Accueil()
         {
-            return View();
 
+            return View();
         }
 
         public ActionResult Nouveaute()
@@ -70,18 +71,21 @@ namespace Web_TP2.Controllers
             string user = Request.Form["username"];
             string pass = Request.Form["password"];
 
-            Serializer s = new Serializer();
-            List<object> listUsers = s.Read(Server.MapPath("~") + "users.txt");
+            UserSerializer s = new UserSerializer();
+            List<User> listUsers = s.Read(Server.MapPath("~") + "users.txt");
 
             bool loginCorrect = false;
-            foreach (Login u in listUsers) {
+            foreach (User u in listUsers)
+            {
                 if (user == u.Log && pass == u.Pass) loginCorrect = true;
             }
-            if (loginCorrect) {
+            if (loginCorrect)
+            {
                 Session["login"] = true;
                 return View("index");
             }
-            else {
+            else
+            {
                 return View("Accueil");
             }
         }

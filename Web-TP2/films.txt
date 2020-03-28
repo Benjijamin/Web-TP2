@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Films>
+  <Film>
+    <id>1</id>
+    <nom>test</nom>
+  </Film>
+</Films>

@@ -5,18 +5,18 @@ using System.Web;
 
 namespace Web_TP2.Models
 {
-    public class Login
+    public class User
     {
 
         private string log;
         private string pass;
 
-        public Login() {
+        public User() {
             Log = null;
             Pass = null;
         }
 
-        public Login(string login, string pass)
+        public User(string login, string pass)
         {
             Log = login;
             Pass = pass;
