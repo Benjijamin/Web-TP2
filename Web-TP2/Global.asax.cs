@@ -17,5 +17,9 @@ namespace Web_TP2
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Session_Start() {
+            Session["login"] = false;
+        }
     }
 }

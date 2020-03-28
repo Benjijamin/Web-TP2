@@ -9,29 +9,41 @@ namespace Web_TP2.Controllers
     {
         public ActionResult Index()
         {
-            /*
-            Login l = new Login("ben","123");
-            Serializer s = new Serializer();
-            s.Serialize(l, Server.MapPath("~") + "xyz.txt");
-            */
-            Serializer s = new Serializer();
-            ViewBag.liste = s.Read(Server.MapPath("~")+ "xyz.txt");
-
-            return View();
+            if ((bool)Session["login"] == true)
+            {
+                return View();
+            }
+            else {
+                return Redirect("Accueil");
+            }
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            if ((bool)Session["login"] == true)
+            {
+                return View();
+            }
+            else
+            {
+                return Redirect("Accueil");
+            }
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
-            return View();
+            if ((bool)Session["login"] == true)
+            {
+                return View();
+            }
+            else
+            {
+                return Redirect("Accueil");
+            }
         }
 
         public ActionResult Accueil()
@@ -42,7 +54,14 @@ namespace Web_TP2.Controllers
 
         public ActionResult Nouveaute()
         {
-            return View();
+            if ((bool)Session["login"] == true)
+            {
+                return View();
+            }
+            else
+            {
+                return Redirect("Accueil");
+            }
         }
 
         [HttpPost]
@@ -59,7 +78,7 @@ namespace Web_TP2.Controllers
                 if (user == u.Log && pass == u.Pass) loginCorrect = true;
             }
             if (loginCorrect) {
-
+                Session["login"] = true;
                 return View("index");
             }
             else {
