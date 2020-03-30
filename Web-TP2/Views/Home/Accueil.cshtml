@@ -3,51 +3,33 @@
     ViewBag.Title = "Accueil";
 }
 
-    <body>
-        
+<body>
 
 
-        <div class="jumbotron">
+
+    <div class="jumbotron ">
+        <div class="container">
 
             <h1>TP2 Movies</h1>
-            <p class="lead">
-                Bienvenue sur TP2 Movies !
-            </p>
-            <p>
-                Veuillez vous identifier
-            </p>
-
-
-
-
-
-            <div class="login-form" style="margin-top:50px;">
-                <form>
-                    <h2 class="text-center">Se connecter</h2>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Username" required="required" />
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password" required="required" />
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block">Log in</button>
-                    </div>
-
-
-                </form>
-            </div>
+            <p class="lead">Bienvenue sur TP2 Movies !</p>
+            <p>Veuillez vous identifier</p>
 
             @{
                 Html.BeginForm("Login", "Home", FormMethod.Post);
             }
-
-            <p>username: @Html.TextBox("username")</p>
-            <p>password: @Html.TextBox("password")</p>
-            <input type="submit" value="submit"/>
+            <div class="form-group">
+                @Html.TextBox("username", null, new { @class = "form-control", placeholder = "Username" , required = "true"})
+            </div>
+            <div class="form-group">
+                @Html.Password("password", null, new { @class = "form-control", placeholder = "Password" , required = "true"})
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+            </div>
 
         </div>
+    </div>
 
 
-    </body>
+</body>
 

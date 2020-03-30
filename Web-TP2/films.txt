@@ -2,6 +2,23 @@
 <Films>
   <Film>
     <id>1</id>
-    <nom>test</nom>
+    <nom>1917</nom>
+  </Film>
+
+  <Film>
+    <id>2</id>
+    <nom>DOLITTLE</nom>
+  </Film>
+  <Film>
+    <id>3</id>
+    <nom>FANTASY ISLAND</nom>
+  </Film>
+  <Film>
+    <id>4</id>
+    <nom>BIRDS OF PREY</nom>
+  </Film>
+  <Film>
+    <id>5</id>
+    <nom>SONIC</nom>
   </Film>
 </Films>
