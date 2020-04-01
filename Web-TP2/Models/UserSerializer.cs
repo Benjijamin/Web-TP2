@@ -36,13 +36,18 @@ namespace Web_TP2.Models
 
         public List<User> Read(string path)
         {
-            List<User> listUsers = new List<User>(); 
-
-            XDocument doc = XDocument.Load(path);
-            foreach (XElement el in XElement.Load(path).Elements("User")) {
-                listUsers.Add(new User(el.Element("username").Value,el.Element("password").Value));
+            List<User> listUsers = new List<User>();
+            try
+            {
+                XDocument doc = XDocument.Load(path);
+                foreach (XElement el in XElement.Load(path).Elements("User"))
+                {
+                    listUsers.Add(new User(el.Element("username").Value, el.Element("password").Value));
+                }
             }
-
+            catch (FileNotFoundException e) {
+                return null;
+            }
             return listUsers;
         }
     }

@@ -15,7 +15,7 @@
             <p>Veuillez vous identifier</p>
 
             @{
-                Html.BeginForm("Login", "Home", FormMethod.Post);
+                Html.BeginForm("Log", "Home", FormMethod.Post);
             }
             <div class="form-group">
                 @Html.TextBox("username", null, new { @class = "form-control", placeholder = "Username" , required = "true"})

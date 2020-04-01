@@ -9,13 +9,13 @@ namespace Web_TP2.Controllers
     {
         public ActionResult Index()
         {
-            if ((bool)Session["login"] == true)
+            if ((bool)Session["login"])
             {
                 return View();
             }
             else
             {
-                return Redirect("Accueil");
+                return View("Login");
             }
         }
 
@@ -23,13 +23,13 @@ namespace Web_TP2.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
-            if ((bool)Session["login"] == true)
+            if ((bool)Session["login"])
             {
                 return View();
             }
             else
             {
-                return Redirect("Accueil");
+                return View("Login");
             }
         }
 
@@ -37,36 +37,24 @@ namespace Web_TP2.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
-            if ((bool)Session["login"] == true)
+            if ((bool)Session["login"])
             {
                 return View();
             }
             else
             {
-                return Redirect("Accueil");
+                return View("Login");
             }
         }
 
-        public ActionResult Accueil()
+        public ActionResult Login()
         {
 
             return View();
         }
 
-        public ActionResult Nouveaute()
-        {
-            if ((bool)Session["login"] == true)
-            {
-                return View();
-            }
-            else
-            {
-                return Redirect("Accueil");
-            }
-        }
-
         [HttpPost]
-        public ActionResult Login()
+        public ActionResult Log()
         {
             string user = Request.Form["username"];
             string pass = Request.Form["password"];
@@ -86,7 +74,7 @@ namespace Web_TP2.Controllers
             }
             else
             {
-                return View("Accueil");
+                return View("Login");
             }
         }
     }

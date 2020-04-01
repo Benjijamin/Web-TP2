@@ -34,13 +34,17 @@ namespace Web_TP2.Models
         public List<Film> Read(string path)
         {
             List<Film> listFilms = new List<Film>();
-
-            XDocument doc = XDocument.Load(path);
-            foreach (XElement el in XElement.Load(path).Elements("User"))
+            try
             {
-                listFilms.Add(new Film(Int32.Parse(el.Element("id").Value), el.Element("nom").Value));
+                XDocument doc = XDocument.Load(path);
+                foreach (XElement el in XElement.Load(path).Elements("User"))
+                {
+                    listFilms.Add(new Film(Int32.Parse(el.Element("id").Value), el.Element("nom").Value));
+                }
             }
-
+            catch (FileNotFoundException e) {
+                return null;
+            }
             return listFilms;
         }
     }
