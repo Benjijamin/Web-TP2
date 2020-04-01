@@ -15,8 +15,20 @@ namespace Web_TP2
 
             routes.MapRoute(
                 name: "Nouveaute",
-                url:"films/nouveaute",
-                defaults: new { controller = "Films", action = "Nouveaute"}
+                url: "film/nouveaute",
+                defaults: new { controller = "Film", action = "Nouveaute" }
+                );
+
+            routes.MapRoute(
+                name: "AjoutMaListe",
+                url: "film/AjoutMaListe",
+                defaults: new { controller = "Film", action = "AjoutMaListe"}
+                );
+
+            routes.MapRoute(
+                name: "FilmById",
+                url: "film/{id}",
+                defaults: new { controller = "Film", action = "Get", id = "1" }
                 );
 
             routes.MapRoute(
@@ -24,6 +36,7 @@ namespace Web_TP2
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
         }
     }
 }

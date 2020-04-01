@@ -11,20 +11,7 @@ namespace Web_TP2.Controllers
         {
             if ((bool)Session["login"])
             {
-                return View();
-            }
-            else
-            {
-                return View("Login");
-            }
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            if ((bool)Session["login"])
-            {
+                FilmSerializer.AddToUserList(new Film("le Film"), (string)Session["user"], Server.MapPath("~") + "playlists.txt");
                 return View();
             }
             else
@@ -59,17 +46,20 @@ namespace Web_TP2.Controllers
             string user = Request.Form["username"];
             string pass = Request.Form["password"];
 
-            UserSerializer s = new UserSerializer();
-            List<User> listUsers = s.Read(Server.MapPath("~") + "users.txt");
+            List<User> listUsers = UserSerializer.Read(Server.MapPath("~") + "users.txt");
 
-            bool loginCorrect = false;
             foreach (User u in listUsers)
             {
-                if (user == u.Log && pass == u.Pass) loginCorrect = true;
+                if (user == u.Log && pass == u.Pass)
+                {
+                    Session["login"] = true;
+                    Session["user"] = u.Log;
+                    Session["admin"] = u.Admin;
+                };
             }
-            if (loginCorrect)
+
+            if ((bool)Session["login"])
             {
-                Session["login"] = true;
                 return View("index");
             }
             else

@@ -20,6 +20,8 @@ namespace Web_TP2
 
         protected void Session_Start() {
             Session["login"] = false;
+            Session["user"] = "none";
+            Session["admin"] = false;
         }
     }
 }

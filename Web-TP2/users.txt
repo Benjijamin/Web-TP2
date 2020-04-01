@@ -3,9 +3,16 @@
   <User>
     <username>ben</username>
     <password>123</password>
+    <admin>true</admin>
   </User>
   <User>
     <username>username</username>
     <password>password</password>
+    <admin>false</admin>
+  </User>
+  <User>
+    <username>sam</username>
+    <password>123</password>
+    <admin>false</admin>
   </User>
 </Logins>

@@ -6,28 +6,29 @@ namespace Web_TP2.Models
     public class Film
     {
         private int id;
-        private String nom;
+        private string nom;
+        private string image;
 
         public static int globalId;
 
 
 
-        public Film(String n)
+        public Film(string n)
         {
-            this.Id = Interlocked.Increment(ref globalId);
-            this.Nom = n;
+            Id = Interlocked.Increment(ref globalId);
+            Nom = n;
+            Image = "noimage.jpg";
         }
 
 
-        public Film(int id, String n) {
+        public Film(int id, string n, string image) {
             Id = id;
-            Nom = nom;
+            Nom = n;
+            Image = image;
         }
 
         public int Id { get => id; set => id = value; }
         public string Nom { get => nom; set => nom = value; }
-
-
-
+        public string Image { get => image; set => image = value; }
     }
 }

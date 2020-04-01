@@ -3,22 +3,26 @@
   <Film>
     <id>1</id>
     <nom>1917</nom>
+    <image>1917.jpg</image>
   </Film>
-
   <Film>
     <id>2</id>
     <nom>DOLITTLE</nom>
+    <image>dolittleeeeeeeeeeeeeeeeeeeeeeeeeeee_.jpg</image>
   </Film>
   <Film>
     <id>3</id>
     <nom>FANTASY ISLAND</nom>
+    <image>fantasyislandddddddddddddddddddddddddd.jpeg</image>
   </Film>
   <Film>
     <id>4</id>
     <nom>BIRDS OF PREY</nom>
+    <image>harley.jpg</image>
   </Film>
   <Film>
     <id>5</id>
     <nom>SONIC</nom>
+    <image>/soniiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiic.jpg</image>
   </Film>
 </Films>

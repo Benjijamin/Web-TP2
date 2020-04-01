@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Web_TP2.Models;
 
@@ -6,39 +7,64 @@ namespace Web_TP2.Controllers
 {
     public class FilmController : Controller
     {
-        FilmSerializer s = new FilmSerializer();
-
-        // GET api/<controller>
         public ActionResult Nouveaute()
         {
             if ((bool)Session["login"])
             {
-                ViewBag.listeFilms = s.Read(Server.MapPath("~") + "films.txt");
+                ViewBag.listeFilms = FilmSerializer.Read(Server.MapPath("~") + "films.txt");
                 return View("Nouveaute");
             }
-            else {
+            else
+            {
                 return View("Login");
             }
         }
 
-        // GET api/<controller>/5
-        public Film Get(int id)
+        public ActionResult Get(int id)
         {
-            List<Film> list = s.Read(Server.MapPath("~") + "FilmSerializer.txt");
-            return list.Find(x => x.Id == id); ;
+            if ((bool)Session["login"])
+            {
+                List<Film> list = FilmSerializer.Read(Server.MapPath("~") + "films.txt");
+                ViewBag.film = list.Find(x => x.Id == id);
+                return View("Film");
+            }
+            else
+            {
+                return View("Login");
+            }
+        }
+        public ActionResult MaListe()
+        {
+            List<Film> maListe = FilmSerializer.ReadUserList((string)Session["user"], Server.MapPath("~") + "playlists.txt");
+
+            if ((bool)Session["login"])
+            {
+                return View();
+            }
+            else
+            {
+                return View("Login");
+            }
         }
 
-        // POST api/<controller>
+        [HttpPost]
+        public void AjoutMaListe()
+        {
+            int id = Int32.Parse(Request.Form["FilmId"]);
+
+            List<Film> listeFilms = FilmSerializer.Read(Server.MapPath("~") + "films.txt");
+            Film film = listeFilms.Find(x => x.Id == id);
+            FilmSerializer.AddToUserList(film, (string)Session["user"], Server.MapPath("~") + "playlists.txt");
+        }
+
         public void Post(string value)
         {
         }
 
-        // PUT api/<controller>/5
         public void Put(int id, string value)
         {
         }
 
-        // DELETE api/<controller>/5
         public void Delete(int id)
         {
         }
