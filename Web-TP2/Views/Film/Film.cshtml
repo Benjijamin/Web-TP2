@@ -2,15 +2,15 @@
 @{
     ViewBag.Title = "Film";
 }
-<div class="jumbotron">
-    <h1>@ViewBag.film.Nom</h1>
-    <img src="~/Content/@ViewBag.film.Image" alt="@ViewBag.film.Nom">
-
-    @{
-        Html.BeginForm("AjoutMaListe", "Film", FormMethod.Post);
-    }
-    <div class="form">
-        <input type="hidden" id="FilmId" name="FilmId" value="@ViewBag.film.Id">
-        <input type="submit" value="Ajouter a ma liste" class="btn btn-primary btn-block" />
+    <div class="jumbotron">
+        <h1>@ViewBag.film.Nom</h1>
+        <img src="~/Content/@ViewBag.film.Image" alt="@ViewBag.film.Nom">
+        <iframe width="560" height="315" src="@ViewBag.film.Lien" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        @{
+            Html.BeginForm("AjoutMaListe", "Film", FormMethod.Post);
+        }
+        <div class="form">
+            <input type="hidden" id="FilmId" name="FilmId" value="@ViewBag.film.Id">
+            <input type="submit" value="Ajouter a ma liste" class="btn btn-primary btn-block" />
+        </div>
     </div>
-</div>

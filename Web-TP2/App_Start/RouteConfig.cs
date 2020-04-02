@@ -20,9 +20,15 @@ namespace Web_TP2
                 );
 
             routes.MapRoute(
+                name: "Offres",
+                url: "film/offre",
+                defaults: new { controller = "Film", action = "Offre" }
+                );
+
+            routes.MapRoute(
                 name: "AjoutMaListe",
                 url: "film/AjoutMaListe",
-                defaults: new { controller = "Film", action = "AjoutMaListe"}
+                defaults: new { controller = "Film", action = "AjoutMaListe" }
                 );
 
             routes.MapRoute(

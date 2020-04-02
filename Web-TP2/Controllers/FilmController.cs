@@ -11,8 +11,21 @@ namespace Web_TP2.Controllers
         {
             if ((bool)Session["login"])
             {
-                ViewBag.listeFilms = FilmSerializer.Read(Server.MapPath("~") + "films.txt");
+                ViewBag.listeFilms = FilmSerializer.Read(Server.MapPath("~") + "nouveaute.txt");
                 return View("Nouveaute");
+            }
+            else
+            {
+                return View("Login");
+            }
+        }
+
+        public ActionResult Offre()
+        {
+            if ((bool)Session["login"])
+            {
+                ViewBag.listeFilms = FilmSerializer.Read(Server.MapPath("~") + "films.txt");
+                return View("Offre");
             }
             else
             {

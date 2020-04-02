@@ -289,6 +289,7 @@
     <Content Include="Views\Shared\Login.cshtml" />
     <Content Include="Views\Film\Nouveaute.cshtml" />
     <Content Include="Views\Film\Film.cshtml" />
+    <Content Include="Views\Film\Offre.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

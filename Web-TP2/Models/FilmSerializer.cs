@@ -19,7 +19,8 @@ namespace Web_TP2.Models
             film.Add(
                 new XElement("id", input.Id),
                 new XElement("nom", input.Nom),
-                new XElement("image", input.Image)
+                new XElement("image", input.Image),
+                new XElement("lien", input.Lien)
                 );
             films.Add(film);
             doc.Save(path);
@@ -35,7 +36,8 @@ namespace Web_TP2.Models
             film.Add(
                 new XElement("id", input.Id),
                 new XElement("nom", input.Nom),
-                new XElement("image", input.Image)
+                new XElement("image", input.Image),
+                new XElement("lien", input.Lien)
                 );
 
             if (listeUsers.Elements(username).Any())
@@ -62,7 +64,8 @@ namespace Web_TP2.Models
                 listFilms.Add(new Film(
                         Int32.Parse(el.Element("id").Value),
                         el.Element("nom").Value,
-                        el.Element("image").Value
+                        el.Element("image").Value,
+                        el.Element("lien").Value
                         ));
             }
             return listFilms;
@@ -80,7 +83,8 @@ namespace Web_TP2.Models
                     playlist.Add(new Film(
                         Int32.Parse(el.Element("id").Value),
                         el.Element("nom").Value,
-                        el.Element("image").Value
+                        el.Element("image").Value,
+                        el.Element("lien").Value
                         ));
                 }
             }

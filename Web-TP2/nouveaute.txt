@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Films>
+  <Film>
+    <id>4</id>
+    <nom>BIRDS OF PREY</nom>
+    <image>harley.jpg</image>
+<lien>https://www.youtube.com/watch?v=oHg5SJYRHA0</lien>
+  </Film>
+  <Film>
+    <id>5</id>
+    <nom>SONIC</nom>
+    <image>/soniiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiic.jpg</image>
+<lien>https://www.youtube.com/watch?v=oHg5SJYRHA0</lien>
+  </Film>
+</Films>
