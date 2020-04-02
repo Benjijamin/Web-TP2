@@ -35,10 +35,10 @@ namespace Web_TP2.Controllers
         }
         public ActionResult MaListe()
         {
-            List<Film> maListe = FilmSerializer.ReadUserList((string)Session["user"], Server.MapPath("~") + "playlists.txt");
-
             if ((bool)Session["login"])
             {
+                List<Film> maListe = FilmSerializer.ReadUserList((string)Session["user"], Server.MapPath("~") + "playlists.txt");
+                ViewBag.maListe = maListe;
                 return View();
             }
             else
@@ -48,13 +48,15 @@ namespace Web_TP2.Controllers
         }
 
         [HttpPost]
-        public void AjoutMaListe()
+        public ActionResult AjoutMaListe()
         {
             int id = Int32.Parse(Request.Form["FilmId"]);
 
             List<Film> listeFilms = FilmSerializer.Read(Server.MapPath("~") + "films.txt");
             Film film = listeFilms.Find(x => x.Id == id);
             FilmSerializer.AddToUserList(film, (string)Session["user"], Server.MapPath("~") + "playlists.txt");
+
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
         public void Post(string value)

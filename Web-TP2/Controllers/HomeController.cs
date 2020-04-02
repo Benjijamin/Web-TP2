@@ -11,7 +11,6 @@ namespace Web_TP2.Controllers
         {
             if ((bool)Session["login"])
             {
-                FilmSerializer.AddToUserList(new Film("le Film"), (string)Session["user"], Server.MapPath("~") + "playlists.txt");
                 return View();
             }
             else

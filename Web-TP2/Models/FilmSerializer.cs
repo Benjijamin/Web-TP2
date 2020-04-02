@@ -56,18 +56,41 @@ namespace Web_TP2.Models
         public static List<Film> Read(string path)
         {
             List<Film> listFilms = new List<Film>();
-            XDocument doc = XDocument.Load(path);
+
             foreach (XElement el in XElement.Load(path).Elements("Film"))
             {
-                listFilms.Add(new Film(Int32.Parse(el.Element("id").Value), el.Element("nom").Value, el.Element("image").Value));
+                listFilms.Add(new Film(
+                        Int32.Parse(el.Element("id").Value),
+                        el.Element("nom").Value,
+                        el.Element("image").Value
+                        ));
             }
             return listFilms;
         }
 
         public static List<Film> ReadUserList(string username, string path)
         {
-            //Faire ca
-            return null;
+            List<Film> playlist = new List<Film>();
+            XDocument doc = XDocument.Load(path);
+            XElement playlists = doc.Element("Playlists");
+            if (playlists.Elements(username).Any())
+            {
+                foreach (XElement el in playlists.Element(username).Element("Films").Elements("Film"))
+                {
+                    playlist.Add(new Film(
+                        Int32.Parse(el.Element("id").Value),
+                        el.Element("nom").Value,
+                        el.Element("image").Value
+                        ));
+                }
+            }
+            else
+            {
+                playlist = null;
+            }
+
+
+            return playlist;
         }
     }
 }

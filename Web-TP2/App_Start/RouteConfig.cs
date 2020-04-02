@@ -26,6 +26,12 @@ namespace Web_TP2
                 );
 
             routes.MapRoute(
+                name: "MaListe",
+                url: "film/maListe",
+                defaults: new { controller = "Film", action = "MaListe" }
+                );
+
+            routes.MapRoute(
                 name: "FilmById",
                 url: "film/{id}",
                 defaults: new { controller = "Film", action = "Get", id = "1" }

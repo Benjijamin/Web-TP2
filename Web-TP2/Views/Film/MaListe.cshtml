@@ -1,7 +1,16 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿<div class="jumbotron">
 
-<p>Use this area to provide additional information.</p>
+    <h1 class="lead">
+        Ma Liste
+    </h1>
+    @if (ViewBag.maListe != null)
+    {
+        foreach (var film in ViewBag.maListe)
+        {
+            <div>
+                <h3> @film.Nom </h3>
+                <img src="~/Content/@film.Image" alt="@film.Nom">
+            </div>
+        }
+    }
+</div>

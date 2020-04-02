@@ -40,7 +40,6 @@ namespace Web_TP2.Models
             List<User> listUsers = new List<User>();
             try
             {
-                XDocument doc = XDocument.Load(path);
                 foreach (XElement el in XElement.Load(path).Elements("User"))
                 {
                     listUsers.Add(

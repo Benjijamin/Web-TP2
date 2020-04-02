@@ -1,3 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Playlists>
+  <ben>
+    <Films>
+      <Film>
+        <id>1</id>
+        <nom>1917</nom>
+        <image>1917.jpg</image>
+      </Film>
+      <Film>
+        <id>2</id>
+        <nom>DOLITTLE</nom>
+        <image>dolittleeeeeeeeeeeeeeeeeeeeeeeeeeee_.jpg</image>
+      </Film>
+    </Films>
+  </ben>
+  <sam>
+    <Films>
+      <Film>
+        <id>1</id>
+        <nom>1917</nom>
+        <image>1917.jpg</image>
+      </Film>
+    </Films>
+  </sam>
 </Playlists>
